@@ -1,14 +1,19 @@
 import { fromEvent, of, from, Observable, interval, timer, range, merge, concat } from "rxjs";
-import { map, scan, take, pluck, delay, mergeMap } from "rxjs/operators";
+import { map, scan, take, pluck, delay, mergeMap, switchMap } from "rxjs/operators";
 
-
-//MERGEMAP-----------------------------------------------
-// fromEvent(document, "click").subscribe(e=>{
-//     interval(1000).subscribe(val => console.log(val));
-// })
+//SWITCHMAP------USE FOR HTTP REQUEST--------------------
 fromEvent(document, "click").pipe(
-    mergeMap(() => interval(1000))
+    switchMap(() => interval(1000))
 ).subscribe(val => console.log(val));
+
+
+// //MERGEMAP-----------------------------------------------
+// // fromEvent(document, "click").subscribe(e=>{
+// //     interval(1000).subscribe(val => console.log(val));
+// // })
+// fromEvent(document, "click").pipe(
+//     mergeMap(() => interval(1000))
+// ).subscribe(val => console.log(val));
 
 
 
