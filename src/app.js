@@ -1,5 +1,21 @@
-import { fromEvent, of, from, Observable, interval, timer, range } from "rxjs";
-import { map, scan, take, pluck } from "rxjs/operators";
+import { fromEvent, of, from, Observable, interval, timer, range, merge, concat } from "rxjs";
+import { map, scan, take, pluck, delay } from "rxjs/operators";
+
+//MERGE-CONCAT-----------------------------------------------
+const example = merge(
+    of(1).pipe(delay(1000)),
+    of(2),
+    of(3),
+);
+example.subscribe(val => console.log(val));
+console.log("second example");
+const example2 = concat(
+    of(1).pipe(delay(1000)),
+    of(2),
+    of(3),
+);
+example2.subscribe(val => console.log(val));
+
 
 // //MAP-PLUCK-----------------------------------------------
 // document.body.innerHTML = "<p>Loading...</p>"
