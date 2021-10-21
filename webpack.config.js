@@ -1,7 +1,9 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/app.ts',
+  entry: [
+    './src/app.ts', 
+    './src/12.subjcet-vs-observable.ts'],
   devtool: 'inline-source-map',
   module: {
     rules: [
