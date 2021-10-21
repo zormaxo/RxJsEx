@@ -1,5 +1,64 @@
-import { fromEvent, of, from, Observable, interval, timer, range, merge, concat } from "rxjs";
-import { map, scan, take, pluck, delay, mergeMap, switchMap, exhaustMap, concatMap } from "rxjs/operators";
+import { fromEvent, of, from, Observable, Observer, Subject, Subscriber, interval, timer, range, merge, concat } from "rxjs";
+import { map, scan, takeUntil, take, pluck, delay, mergeMap, switchMap, exhaustMap, concatMap } from "rxjs/operators";
+
+// //TAKEUNTIL-----------------------------------------------
+//emit value every 1s
+const source = interval(1000);
+//after 5 seconds, emit value
+const timer$ = timer(5000);
+//when timer emits after 5s, complete source
+const example = source.pipe(takeUntil(timer$));
+//output: 0,1,2,3
+const subscribe = example.subscribe(val => console.log(val));
+
+
+
+// //OBSERVABLE - CREATE OWN OBSERVABLES-----------------------------------------------
+// const observable$: Observable<number> = new Observable<number>(data => {
+//     data.next(1);
+//     data.next(2);
+//     setTimeout(() => {
+//         console.log("timeout");
+//     }, 2000);
+//     data.next(3);
+//     data.next(4);
+//     data.error("error given");
+//     data.complete();
+// });
+// const observer1: Observer<number> =
+// {
+//     next: val => console.log("observer 1 talking " + val),
+//     error: err => console.log(err),
+//     complete: () => console.log("completed")
+// };
+// const observer2: Observer<number> =
+// {
+//     next: val => console.log("observer 2 talking " + val),
+//     error: err => console.log(err),
+//     complete: () => console.log("completed")
+// };
+
+// const subscription = observable$.subscribe(observer1);
+// observable$.subscribe(observer2);
+// observable$.subscribe({
+//     next: val => console.log("observer 3 talking " + val),
+//     error: err => console.log(err),
+//     complete: () => console.log("completed")
+// });
+
+// const employer$: Subject<string> = new Subject<string>();
+// const subscription = employer$.subscribe(notif => {
+//     console.log(`employee 1 gets : ${notif}`);
+// })
+// employer$.pipe(take(1)).subscribe(notif => {
+//     console.log(`employee 2 gets : ${notif}`);
+// })
+// employer$.next("gelin artık");
+// // employer$.complete();
+// subscription.unsubscribe();
+// employer$.next("gelin artık2");
+
+
 
 // //CONCATMAP-------------------------order is important---------------------
 // const source  = of(2000,1000);
@@ -135,23 +194,26 @@ import { map, scan, take, pluck, delay, mergeMap, switchMap, exhaustMap, concatM
 //     complete: () => console.log("completed")
 // });
 
-//OBSERVABLE - CREATE OWN OBSERVABLES-----------------------------------------------
-const observable = new Observable<number>(subscriber => {
-    subscriber.next(1);
-    subscriber.next(2);
-    throw "This is an error";
-    subscriber.next(3);  //of(1,2,3)
-    setInterval(() => {
-        subscriber.next(4);
-        subscriber.complete();
-    }, 1000)
-});
+// //OBSERVABLE - CREATE OWN OBSERVABLES-----------------------------------------------
+// const observable$: Observable<number> = new Observable<number>(data => {
+//     data.next(1);
+//     data.next(2);
+//     data.next(3);
+//     data.next(4);
+//     data.error("error given");
+//     data.complete();
+// });
 
-observable.subscribe({
-    next: val => console.log(val),
-    error: err => console.log(err),
-    complete: () => console.log("completed")
-});
+// const observer: Observer<number> =
+// {
+//     next: val => console.log(val),
+//     error: err => console.log(err),
+//     complete: () => console.log("completed")
+// };
+
+// const subscription = observable$.subscribe(observer);
+
+
 
 // //FROM - CREATE STREAM FROM AN ARRAY-----------------------------------------------
 // const arraySource = from([1, 2, 3, 4, 5])
