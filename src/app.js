@@ -1,12 +1,21 @@
-import { fromEvent, of, from, Observable, interval } from "rxjs";
+import { fromEvent, of, from, Observable, interval, timer, range } from "rxjs";
 import { map, scan, take } from "rxjs/operators";
 
-//INTERVAL-FROM-TAKE-SCAN-----------------------------------------------
-const source = interval(1000);
-source.pipe(
-    scan(val => val + 1, 0),
-    take(4)
-).subscribe(val => console.log(val));
+//TIMER-RANGE-----------------------------------------------
+let source = timer(2000, 1000);
+source.subscribe(val => console.log(val));
+
+source = range(1, 3);
+source.subscribe(val => console.log(val));
+
+
+
+// //INTERVAL-FROM-TAKE-SCAN-----------------------------------------------
+// const source = interval(1000);
+// source.pipe(
+//     scan(val => val + 1, 0),
+//     take(4)
+// ).subscribe(val => console.log(val));
 
 
 
@@ -33,6 +42,8 @@ source.pipe(
 //     }
 // });
 
+
+
 // //OBSERVABLE - CREATE OWN OBSERVABLES-----------------------------------------------
 // const observable = new Observable(subscriber => {
 //     subscriber.next(1);
@@ -51,16 +62,21 @@ source.pipe(
 //     complete: () => console.log("completed")
 // });
 
+
+
 // //FROM - CREATE STREAM FROM AN ARRAY-----------------------------------------------
 // const arraySource = from([1, 2, 3, 4, 5])
 // arraySource.subscribe(val => console.log(val));
 
 // of(1, 2, 3).subscribe(data => console.log(data));
 
+
+
 // //FROMEVENT - MAKE SUBSCRIPTIONS FROM EVENTS-----------------------------------------------
 // fromEvent(document, "click").pipe(
 //     scan(count => count + 1, 0)  //similar to reduce in js
 // ).subscribe(count => console.log(`Clicked ${count} times`));
+
 
 
 // //OF - CREATE OBSERVABLES FROM NUMBERS-----------------------------------------------
