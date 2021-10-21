@@ -1,7 +1,7 @@
 import { fromEvent, of, from, Observable, interval, timer, range, merge, concat } from "rxjs";
 import { map, scan, take, pluck, delay, mergeMap, switchMap, exhaustMap, concatMap } from "rxjs/operators";
 
-//CONCATMAP----------------------------------------------
+//CONCATMAP-------------------------order is important---------------------
 const source  = of(2000,1000);
 
 const example = source.pipe(
