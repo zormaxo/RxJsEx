@@ -1,28 +1,37 @@
-import { fromEvent, of, from, Observable } from "rxjs";
-import { map, scan } from "rxjs/operators";
+import { fromEvent, of, from, Observable, interval } from "rxjs";
+import { map, scan, take } from "rxjs/operators";
 
-//OBSERVABLE - CREATE STREAM FROM AN PROMISE-----------------------------------------------
-document.body.innerHTML = "<p>Loading...</p>"
+//INTERVAL-FROM-TAKE-SCAN-----------------------------------------------
+const source = interval(1000);
+source.pipe(
+    scan(val => val + 1, 0),
+    take(4)
+).subscribe(val => console.log(val));
 
-const myPromise = new Promise((resolve, reject) => {
-    console.log("Creating Promise");
-    setTimeout(() => {
-        resolve({
-            title: "WebDev",
-            message: "WebDev is the best!",
-            age: 12
-        })
-    }, 3000);
-});
 
-//This is where we would put HTTP request if we wanted to turn a HTTP request into an observable
-const observableFromPromise = from(myPromise);
-observableFromPromise.subscribe(data => {
-    document.body.innerHTML = "";
-    for (let key in data) {
-        document.body.insertAdjacentHTML("beforebegin", "<p>" + data[key] + "</p>")
-    }
-});
+
+// //OBSERVABLE - CREATE STREAM FROM AN PROMISE-----------------------------------------------
+// document.body.innerHTML = "<p>Loading...</p>"
+
+// const myPromise = new Promise((resolve, reject) => {
+//     console.log("Creating Promise");
+//     setTimeout(() => {
+//         resolve({
+//             title: "WebDev",
+//             message: "WebDev is the best!",
+//             age: 12
+//         })
+//     }, 3000);
+// });
+
+// //This is where we would put HTTP request if we wanted to turn a HTTP request into an observable
+// const observableFromPromise = from(myPromise);
+// observableFromPromise.subscribe(data => {
+//     document.body.innerHTML = "";
+//     for (let key in data) {
+//         document.body.insertAdjacentHTML("beforebegin", "<p>" + data[key] + "</p>")
+//     }
+// });
 
 // //OBSERVABLE - CREATE OWN OBSERVABLES-----------------------------------------------
 // const observable = new Observable(subscriber => {
