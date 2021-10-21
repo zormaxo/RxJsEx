@@ -1,10 +1,18 @@
 import { fromEvent, of, from, Observable, interval, timer, range, merge, concat } from "rxjs";
-import { map, scan, take, pluck, delay, mergeMap, switchMap, exhaustMap } from "rxjs/operators";
+import { map, scan, take, pluck, delay, mergeMap, switchMap, exhaustMap, concatMap } from "rxjs/operators";
 
-//EXHAUSTMAP------USE FOR HTTP REQUEST--------------------
-fromEvent(document, "click").pipe(
-    exhaustMap(() => interval(1000).pipe(take(5)))
-).subscribe(val => console.log(val));
+//CONCATMAP----------------------------------------------
+const source  = of(2000,1000);
+
+const example = source.pipe(
+    concatMap(val=>of(`Delayed by: ${val}ms`).pipe(delay(val)))
+).subscribe(val=>console.log(val)); 
+
+
+// //EXHAUSTMAP----------------------------------------------
+// fromEvent(document, "click").pipe(
+//     exhaustMap(() => interval(1000).pipe(take(5)))
+// ).subscribe(val => console.log(val));
 
 
 // //SWITCHMAP------USE FOR HTTP REQUEST--------------------
@@ -31,7 +39,7 @@ fromEvent(document, "click").pipe(
 // );
 // example.subscribe(val => console.log(val));
 // console.log("second example");
-// const example2 = concat(
+// const example2 = concat(             //order is important
 //     of(1).pipe(delay(1000)),
 //     of(2),
 //     of(3),
