@@ -1,12 +1,12 @@
 import { fromEvent, of, from, Observable, interval, timer, range, merge, concat } from "rxjs";
 import { map, scan, take, pluck, delay, mergeMap, switchMap, exhaustMap, concatMap } from "rxjs/operators";
 
-//CONCATMAP-------------------------order is important---------------------
-const source  = of(2000,1000);
+// //CONCATMAP-------------------------order is important---------------------
+// const source  = of(2000,1000);
 
-const example = source.pipe(
-    concatMap(val=>of(`Delayed by: ${val}ms`).pipe(delay(val)))
-).subscribe(val=>console.log(val)); 
+// const example = source.pipe(
+//     concatMap(val=>of(`Delayed by: ${val}ms`).pipe(delay(val)))
+// ).subscribe(val=>console.log(val)); 
 
 
 // //EXHAUSTMAP----------------------------------------------
@@ -135,7 +135,23 @@ const example = source.pipe(
 //     complete: () => console.log("completed")
 // });
 
+//OBSERVABLE - CREATE OWN OBSERVABLES-----------------------------------------------
+const observable = new Observable<number>(subscriber => {
+    subscriber.next(1);
+    subscriber.next(2);
+    throw "This is an error";
+    subscriber.next(3);  //of(1,2,3)
+    setInterval(() => {
+        subscriber.next(4);
+        subscriber.complete();
+    }, 1000)
+});
 
+observable.subscribe({
+    next: val => console.log(val),
+    error: err => console.log(err),
+    complete: () => console.log("completed")
+});
 
 // //FROM - CREATE STREAM FROM AN ARRAY-----------------------------------------------
 // const arraySource = from([1, 2, 3, 4, 5])

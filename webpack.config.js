@@ -1,23 +1,21 @@
-const path = require("path");
+const path = require('path');
 
-module.exports={
-    entry : "./src/app.js",
-    module: {
+module.exports = {
+  entry: './src/app.ts',
+  module: {
     rules: [
       {
-        test: /\.m?js$/,
+        test: /\.tsx?$/,
+        use: 'ts-loader',
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ['@babel/preset-env']
-          }
-        }
-      }
-    ]
-  }, 
-  output:{
-      filename : "app.bundle.js",
-      path: path.resolve(__dirname, "dist")
-  }
-}
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
+  output: {
+    filename: 'app.bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+};
