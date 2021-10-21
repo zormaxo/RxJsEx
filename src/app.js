@@ -1,12 +1,39 @@
 import { fromEvent, of, from, Observable, interval, timer, range } from "rxjs";
-import { map, scan, take } from "rxjs/operators";
+import { map, scan, take, pluck } from "rxjs/operators";
 
-//TIMER-RANGE-----------------------------------------------
-let source = timer(2000, 1000);
-source.subscribe(val => console.log(val));
+// //MAP-PLUCK-----------------------------------------------
+// document.body.innerHTML = "<p>Loading...</p>"
 
-source = range(1, 3);
-source.subscribe(val => console.log(val));
+// const myPromise = new Promise((resolve, reject) => {
+//     console.log("Creating Promise");
+//     setTimeout(() => {
+//         resolve({
+//             title: "WebDev",
+//             message: "WebDev is the best!",
+//             age: 12
+//         })
+//     }, 2000);
+// });
+
+// //This is where we would put HTTP request if we wanted to turn a HTTP request into an observable
+// const observableFromPromise = from(myPromise);
+// observableFromPromise.pipe(
+//     // map(data => data.age)
+//     pluck("age")
+// ).subscribe(data => {
+//     document.body.innerHTML = "";
+//     document.body.insertAdjacentHTML("beforebegin", "<p>" + data + "</p>")
+
+// });
+
+
+
+// //TIMER-RANGE-----------------------------------------------
+// let source = timer(2000, 1000);
+// source.subscribe(val => console.log(val));
+
+// source = range(1, 3);
+// source.subscribe(val => console.log(val));
 
 
 
