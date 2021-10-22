@@ -75,11 +75,6 @@ import { map, scan, takeUntil, take, pluck, delay, mergeMap, switchMap, exhaustM
 // ).subscribe(val => console.log(val));
 
 
-// //SWITCHMAP------USE FOR HTTP REQUEST--------------------
-// fromEvent(document, "click").pipe(
-//     switchMap(() => interval(1000))
-// ).subscribe(val => console.log(val));
-
 
 // //MERGEMAP-----------------------------------------------
 // // fromEvent(document, "click").subscribe(e=>{

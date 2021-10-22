@@ -1,8 +1,8 @@
-import { fromEvent, of, from, Observable, Observer, Subject, Subscriber, interval, timer, range, merge, concat } from "rxjs";
+/* import { fromEvent, of, from, Observable, Observer, Subject, Subscriber, interval, timer, range, merge, concat } from "rxjs";
 import { map, scan, takeUntil, take, pluck, delay, mergeMap, switchMap, exhaustMap, concatMap } from "rxjs/operators";
 
+console.log("SUBJECT AND OBSERVABLE DIFFERENCE");
 
-//SUBJECT AND OBSERVABLE DIFFERENCE-----------------------------------------------
 const observable$: Observable<number> = new Observable<number>(data => {
     data.next(Math.random());
 
@@ -27,4 +27,4 @@ obs.subscribe(res => {
     console.log('subscription b :', res);// subscription b : 0.91767565496093
 });
 
-obs.next(Math.random());
+obs.next(Math.random()); */
