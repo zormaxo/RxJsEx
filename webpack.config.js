@@ -9,6 +9,7 @@ module.exports = {
     "./src/10-mergeMap.ts",
     './src/12-subjcet-vs-observable.ts',
     "./src/13-debounceTime.ts",
+    "./src/14-catchError.ts",
   ],
   devtool: 'inline-source-map',
   module: {
