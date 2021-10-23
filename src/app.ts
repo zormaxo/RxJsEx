@@ -14,50 +14,6 @@ import { map, scan, takeUntil, take, pluck, delay, mergeMap, switchMap, exhaustM
 
 
 
-// //OBSERVABLE - CREATE OWN OBSERVABLES-----------------------------------------------
-// const observable$: Observable<number> = new Observable<number>(data => {
-//     data.next(1);
-//     data.next(2);
-//     setTimeout(() => {
-//         console.log("timeout");
-//     }, 2000);
-//     data.next(3);
-//     data.next(4);
-//     data.error("error given");
-//     data.complete();
-// });
-// const observer1: Observer<number> =
-// {
-//     next: val => console.log("observer 1 talking " + val),
-//     error: err => console.log(err),
-//     complete: () => console.log("completed")
-// };
-// const observer2: Observer<number> =
-// {
-//     next: val => console.log("observer 2 talking " + val),
-//     error: err => console.log(err),
-//     complete: () => console.log("completed")
-// };
-
-// const subscription = observable$.subscribe(observer1);
-// observable$.subscribe(observer2);
-// observable$.subscribe({
-//     next: val => console.log("observer 3 talking " + val),
-//     error: err => console.log(err),
-//     complete: () => console.log("completed")
-// });
-
-// const employer$: Subject<string> = new Subject<string>();
-// const subscription = employer$.subscribe(notif => {
-//     console.log(`employee 1 gets : ${notif}`);
-// })
-// employer$.pipe(take(1)).subscribe(notif => {
-//     console.log(`employee 2 gets : ${notif}`);
-// })
-// employer$.next("gelin artık");
-// // employer$.complete();
-// subscription.unsubscribe();
-// employer$.next("gelin artık2");
 
 
 
@@ -190,24 +146,6 @@ import { map, scan, takeUntil, take, pluck, delay, mergeMap, switchMap, exhaustM
 //     complete: () => console.log("completed")
 // });
 
-// //OBSERVABLE - CREATE OWN OBSERVABLES-----------------------------------------------
-// const observable$: Observable<number> = new Observable<number>(data => {
-//     data.next(1);
-//     data.next(2);
-//     data.next(3);
-//     data.next(4);
-//     data.error("error given");
-//     data.complete();
-// });
-
-// const observer: Observer<number> =
-// {
-//     next: val => console.log(val),
-//     error: err => console.log(err),
-//     complete: () => console.log("completed")
-// };
-
-// const subscription = observable$.subscribe(observer);
 
 
 
