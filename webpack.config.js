@@ -6,6 +6,7 @@ module.exports = {
     './src/12-subjcet-vs-observable.ts',
     "./src/9-switchMap.ts",
     "./src/13-debounceTime.ts",
+    "./src/2-fromEvent.ts"   
   ],
   devtool: 'inline-source-map',
   module: {
