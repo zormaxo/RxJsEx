@@ -30,12 +30,12 @@ fromEvent(button, 'click')
 
 /////////////////////////////////// 3 ///////////////////////////////////
 
-var button = document.querySelector('button');
+/* var button = document.querySelector('button');
 
 const observable$: Observable<number> = new Observable<number>(subscriber);
 function subscriber(data: any) {
     button.onclick = function (event) {
-        data.next("1");
+        data.next(1);
     }
 };
-observable$.subscribe(val => console.log(val));
+observable$.subscribe(subscriber); */

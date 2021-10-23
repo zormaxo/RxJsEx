@@ -32,15 +32,6 @@ import { map, scan, takeUntil, take, pluck, delay, mergeMap, switchMap, exhaustM
 
 
 
-// //MERGEMAP-----------------------------------------------
-// // fromEvent(document, "click").subscribe(e=>{
-// //     interval(1000).subscribe(val => console.log(val));
-// // })
-// fromEvent(document, "click").pipe(
-//     mergeMap(() => interval(1000))
-// ).subscribe(val => console.log(val));
-
-
 
 // //MERGE-CONCAT-----------------------------------------------
 // const example = merge(
@@ -157,7 +148,11 @@ import { map, scan, takeUntil, take, pluck, delay, mergeMap, switchMap, exhaustM
 
 
 
-// //OF - CREATE OBSERVABLES FROM NUMBERS-----------------------------------------------
-// of(1, 2, 3).pipe(
-//     map(x => x * x)
-// ).subscribe(data => console.log(data));
+/* //OF - CREATE OBSERVABLES FROM NUMBERS-----------------------------------------------
+of(1, 2, 3).pipe(
+    map(x => {
+        x = x * x;
+        console.log("ÖMER");
+        return x;
+    })
+).subscribe(data => console.log(data)); */
