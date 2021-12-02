@@ -5,7 +5,7 @@
 
 // /////////////////////////////////// 1 ///////////////////////////////////
 
-// var button1 = document.querySelector('button');
+// var button = document.querySelector('button');
 
 // var observer = {
 //     next: (value: any) => {
@@ -19,24 +19,10 @@
 //     }
 // };
 
-// fromEvent(button1, 'click')
-//     .subscribe(observer);
+// fromEvent(button, 'click').subscribe(observer);
 
 // /////////////////////////////////// 2 ///////////////////////////////////
 
 // fromEvent(document, "click").pipe(
-//     scan(count => count + 1, 0)  //similar to reduce in js
+//     scan(count => count + 1, 0)                   //similar to reduce in js
 // ).subscribe(count => console.log(`Clicked ${count} times`));
-
-
-// /////////////////////////////////// 3 ///////////////////////////////////
-
-// var button = document.querySelector('button');
-
-// const observable$: Observable<number> = new Observable<number>(subscriber);
-// function subscriber(data: any) {
-//     button.onclick = function (event) {
-//         data.next(1);
-//     }
-// };
-// observable$.subscribe(val=>console.log(val));

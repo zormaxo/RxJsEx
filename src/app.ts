@@ -6,13 +6,11 @@ import { map, scan, takeUntil, take, pluck, delay, mergeMap, switchMap, exhaustM
 // //emit value every 1s
 // const source = interval(1000);
 // //after 5 seconds, emit value
-// const timer$ = timer(5000);
+// const timer$ = timer(10000);
 // //when timer emits after 5s, complete source
 // const example = source.pipe(takeUntil(timer$));
 // //output: 0,1,2,3
 // const subscribe = example.subscribe(val => console.log(val));
-
-
 
 
 
@@ -119,26 +117,6 @@ import { map, scan, takeUntil, take, pluck, delay, mergeMap, switchMap, exhaustM
 
 
 
-// //OBSERVABLE - CREATE OWN OBSERVABLES-----------------------------------------------
-// const observable = new Observable(subscriber => {
-//     subscriber.next(1);
-//     subscriber.next(2);
-//     throw "This is an error";
-//     subscriber.next(3);  //of(1,2,3)
-//     setInterval(() => {
-//         subscriber.next(4);
-//         subscriber.complete();
-//     }, 1000)
-// });
-
-// observable.subscribe({
-//     next: val => console.log(val),
-//     error: err => console.log(err),
-//     complete: () => console.log("completed")
-// });
-
-
-
 
 // //FROM - CREATE STREAM FROM AN ARRAY-----------------------------------------------
 // const arraySource = from([1, 2, 3, 4, 5])
@@ -148,11 +126,11 @@ import { map, scan, takeUntil, take, pluck, delay, mergeMap, switchMap, exhaustM
 
 
 
-//OF - CREATE OBSERVABLES FROM NUMBERS-----------------------------------------------
-of(1, 2, 3).pipe(
-    map(x => {
-        x = x * x;
-        console.log("ÖMER");
-        return x;
-    })
-).subscribe(data => console.log(data));
+// console.log("OF - CREATE OBSERVABLES FROM NUMBERS");
+// of(1, 2, 3).pipe(
+//     map(x => {
+//         x = x * x;
+//         console.log("ömer");
+//         return x;
+//     })
+// ).subscribe(data => console.log(data));
