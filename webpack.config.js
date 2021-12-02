@@ -11,16 +11,8 @@ module.exports = {
     "./src/13-debounceTime.ts",
     "./src/14-catchError.ts",
   ],
-  devtool: 'inline-source-map',
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-    ],
-  },
+  devtool: 'inline-source-map', //There were warnings on the console so I added this to prevent getting warnings. I don't know what this is excatly
+  module: {},
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
