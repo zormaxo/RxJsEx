@@ -148,11 +148,11 @@ import { map, scan, takeUntil, take, pluck, delay, mergeMap, switchMap, exhaustM
 
 
 
-/* //OF - CREATE OBSERVABLES FROM NUMBERS-----------------------------------------------
+//OF - CREATE OBSERVABLES FROM NUMBERS-----------------------------------------------
 of(1, 2, 3).pipe(
     map(x => {
         x = x * x;
         console.log("ÖMER");
         return x;
     })
-).subscribe(data => console.log(data)); */
+).subscribe(data => console.log(data));
